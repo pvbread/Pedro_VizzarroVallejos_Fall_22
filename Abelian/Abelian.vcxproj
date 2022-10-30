@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -138,10 +138,13 @@
     <ClInclude Include="Abelian.h" />
     <ClInclude Include="AbelianApp.h" />
     <ClInclude Include="AbelianUtil.h" />
+    <ClInclude Include="AbelianWindow.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="WindowImplementation.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AbelianApp.cpp" />
+    <ClCompile Include="AbelianWindow.cpp" />
     <ClCompile Include="pch.cpp" />
   </ItemGroup>
   <ItemGroup>
