@@ -1,6 +1,8 @@
 #include "pch.h"
 
 #include "GLFWimplementation.h"
+#include "AbelianUtil.h"
+
 
 namespace Abelian
 {
@@ -10,11 +12,17 @@ namespace Abelian
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 		glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+		
 	}
 
 	void GLFWimplementation::Create(int width, int height, const std::string& windowName)
 	{
 		mWindow = glfwCreateWindow(width, height, windowName.c_str(), NULL, NULL);
+		glfwMakeContextCurrent(mWindow);
+		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
+		{
+			ABELIAN_LOG("Failed to initialize GLAD");
+		}
 	}
 
 	void GLFWimplementation::SwapBuffers()

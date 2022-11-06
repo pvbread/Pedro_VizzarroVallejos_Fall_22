@@ -21,5 +21,6 @@ target_precompile_headers(Abelian PRIVATE pch.h)
 
 include_directories(../glwf/include)
 include_directories(../Abelian)
+include_directories(../glad/include)
 
-target_link_libraries(Abelian glfw)
+target_link_libraries(Abelian glfw glad)

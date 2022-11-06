@@ -20,5 +20,6 @@ add_definitions(-DABELIAN_DEBUG)
 add_subdirectory(Archimedes)
 add_subdirectory(Abelian)
 add_subdirectory(glfw)
+add_subdirectory(glad)
 
 set(VS_STARTUP_PROJECT Archimedes)
