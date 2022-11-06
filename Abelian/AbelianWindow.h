@@ -9,13 +9,14 @@ namespace Abelian
 	class ABELIAN_API AbelianWindow
 	{
 	public:
-		void Init();
-		AbelianWindow* GetWindow();
+		static void Init();
+		static AbelianWindow* GetWindow();
 
-		void Create(int width, int height, const std::string& windowName);
-		void SwapBuffers();
+		virtual void Create(int width, int height, const std::string& windowName);
+		virtual void SwapBuffers();
 	private:
-		AbelianWindow();
+		//question about why this is here
+		//AbelianWindow();
 
 		inline static AbelianWindow* mInstance{ nullptr };
 

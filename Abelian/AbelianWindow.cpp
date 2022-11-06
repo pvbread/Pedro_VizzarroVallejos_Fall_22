@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "AbelianWindow.h"
+#include "GLFWcode/GLFWimplementation.h"
 
 namespace Abelian
 {
@@ -8,7 +9,13 @@ namespace Abelian
 		if (mInstance == nullptr)
 		{
 			mInstance = new AbelianWindow;
-			//mInstance->mImplementation
+#ifdef ABELIAN_WINDOWS
+			mInstance->mImplementation = new GLFWimplementation;
+#elif defined ABELIAN_MAC
+			mInstance->mImplementation = new GLFWimplementation;
+#else
+			mInstance->mImplementation = new GLFWimplementation;
+#endif
 		}
 	}
 	AbelianWindow* AbelianWindow::GetWindow()
