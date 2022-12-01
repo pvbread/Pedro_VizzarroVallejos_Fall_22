@@ -141,10 +141,12 @@
     <ClInclude Include="AbelianWindow.h" />
     <ClInclude Include="GLFWcode\GLFWimplementation.h" />
     <ClInclude Include="OpenGLcode\OpenGLPicture.h" />
+    <ClInclude Include="OpenGLcode\OpenGLShader.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Picture.h" />
     <ClInclude Include="PictureImplementation.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="ShaderImplementation.h" />
     <ClInclude Include="WindowImplementation.h" />
   </ItemGroup>
   <ItemGroup>
@@ -152,8 +154,10 @@
     <ClCompile Include="AbelianWindow.cpp" />
     <ClCompile Include="GLFWcode\GLFWimplementation.cpp" />
     <ClCompile Include="OpenGLcode\OpenGLPicture.cpp" />
+    <ClCompile Include="OpenGLcode\OpenGLShader.cpp" />
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="Picture.cpp" />
+    <ClCompile Include="Shader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\glad\glad.vcxproj">
