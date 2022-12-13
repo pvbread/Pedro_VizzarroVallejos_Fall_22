@@ -4,7 +4,7 @@ namespace Abelian
 {
 	Picture::Picture(const std::string& soureFile)
 	{
-#ifdef SOIL_OPENGL
+#ifdef ABELIAN_OPENGL
 		mImplementation = new OpenGLPicture{ sourceFile };
 #else
 		#OpenGL_is_the_only_option_right_now
@@ -13,7 +13,7 @@ namespace Abelian
 
 	Picture::Picture(const std::string&& soureFile)
 	{
-#ifdef SOIL_OPENGL
+#ifdef ABELIAN_OPENGL
 		mImplementation = new OpenGLPicture{ sourceFile };
 #else
 		#OpenGL_is_the_only_option_right_now
