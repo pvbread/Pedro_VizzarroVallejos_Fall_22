@@ -1,8 +1,13 @@
 #include "pch.h"
 #include "Renderer.h"
+#include "OpenGLcode/OpenGLRenderer.h"
 
 namespace Abelian
 {
+	Renderer* Renderer::GetRenderer()
+	{
+		return mInstance;
+	}
 	void Renderer::Init()
 	{
 		if (mInstance == nullptr)
@@ -10,11 +15,11 @@ namespace Abelian
 	}
 	void Renderer::Draw(Picture& picture, Shader& shader, int x, int y, int z)
 	{
-		mImplementation->Draw(picture, x, y, z, shader);
+		GetRenderer()->mImplementation->Draw(picture, x, y, z, shader);
 	}
 	void Renderer::Draw(Picture& picture, int x, int y, int z)
 	{
-		mImplementation->Draw(picture, x, y, z);
+		GetRenderer()->mImplementation->Draw(picture, x, y, z);
 	}
 	Renderer::Renderer()
 	{

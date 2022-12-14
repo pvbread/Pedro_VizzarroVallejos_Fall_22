@@ -1,4 +1,5 @@
 #include "Picture.h"
+#include "OpenGLcode/OpenGLPicture.h"
 
 namespace Abelian
 {

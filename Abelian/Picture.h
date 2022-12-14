@@ -2,6 +2,7 @@
 
 #include "pch.h"
 #include "AbelianUtil.h"
+#include "PictureImplementation.h"
 
 namespace Abelian
 {

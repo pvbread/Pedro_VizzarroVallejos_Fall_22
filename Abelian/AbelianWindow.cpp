@@ -25,9 +25,20 @@ namespace Abelian
 	void AbelianWindow::Create(int width, int height, const std::string& windowName)
 	{
 		mImplementation->Create(width, height, windowName);
+
+		mWidth = width;
+		mHeight = height;
 	}
 	void AbelianWindow::SwapBuffers()
 	{
 		mImplementation->SwapBuffers();
+	}
+	int AbelianWindow::GetWidth() const
+	{
+		return mWidth;
+	}
+	int AbelianWindow::GetHeight() const
+	{
+		return mHeight;
 	}
 }

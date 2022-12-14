@@ -14,7 +14,7 @@ namespace Abelian
 
 		void Activate();
 		void ProvideFloatValues(const std::string& valueName, const std::vector<float>& vals);
-		void ProvideFloatValues(const std::string&& valueName, const std::vector<float>& vals);
+		void ProvideFloatValues(const std::string&& valueName, const std::vector<float>&& vals);
 	private:
 		ShaderImplementation* mImplementation;
 	};

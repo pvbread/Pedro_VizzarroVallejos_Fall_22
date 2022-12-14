@@ -14,6 +14,9 @@ namespace Abelian
 
 		virtual void Create(int width, int height, const std::string& windowName);
 		virtual void SwapBuffers();
+
+		int GetWidth() const;
+		int GetHeight() const;
 	private:
 		//question about why this is here
 		//AbelianWindow();
@@ -21,5 +24,8 @@ namespace Abelian
 		inline static AbelianWindow* mInstance{ nullptr };
 
 		WindowImplementation* mImplementation{ nullptr };
+
+		int mWidth{ 0 };
+		int mHeight{ 0 };
 	};
 }

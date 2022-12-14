@@ -9,6 +9,7 @@ namespace Abelian
 	class ABELIAN_API Renderer
 	{
 	public:
+		static Renderer* GetRenderer();
 		static void Init();
 		static void Draw(Picture& picture, Shader& shader, int x, int y, int z);
 		static void Draw(Picture& picture, int x, int y, int z);
