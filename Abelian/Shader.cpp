@@ -1,8 +1,25 @@
 #include "pch.h"
 #include "Shader.h"
+#include "OpenGLcode/OpenGLShader.h"
 
 namespace Abelian
 {
+	Shader::Shader(const std::string& vertexFile, const std::string& fragmentShader)
+	{
+#ifdef ABELIAN_OPENGL
+		mImplementation = new OpenGLShader{ vertexFile, fragmentShader };
+#else
+		#OpenGL_is_the_only_option_right_now
+#endif
+	}
+	Shader::Shader(const std::string&& vertexFile, const std::string&& fragmentShader)
+	{
+#ifdef ABELIAN_OPENGL
+		mImplementation = new OpenGLShader{ vertexFile, fragmentShader };
+#else
+		#OpenGL_is_the_only_option_right_now
+#endif
+	}
 	void Shader::Activate()
 	{
 		mImplementation->Activate();

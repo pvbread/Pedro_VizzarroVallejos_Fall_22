@@ -53,7 +53,7 @@ namespace Abelian
             ABELIAN_LOG("Error: failed to open fragment shader file")
         }
         // link shaders
-        unsigned int mShaderProg = glCreateProgram();
+        mShaderProg = glCreateProgram();
         glAttachShader(mShaderProg, vertexShader);
         glAttachShader(mShaderProg, fragmentShader);
         glLinkProgram(mShaderProg);
@@ -114,7 +114,7 @@ namespace Abelian
             ABELIAN_LOG("Error: failed to open fragment shader file")
         }
         // link shaders
-        unsigned int mShaderProg = glCreateProgram();
+        mShaderProg = glCreateProgram();
         glAttachShader(mShaderProg, vertexShader);
         glAttachShader(mShaderProg, fragmentShader);
         glLinkProgram(mShaderProg);

@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "OpenGLPicture.h"
 #include "glad/glad.h"
 #include "stb_image.h"
@@ -59,4 +60,5 @@ namespace Abelian
     {
         glBindTexture(GL_TEXTURE_2D, mImage);
     }
+    
 }

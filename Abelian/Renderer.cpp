@@ -13,14 +13,21 @@ namespace Abelian
 		if (mInstance == nullptr)
 			mInstance = new Renderer;
 	}
-	void Renderer::Draw(Picture& picture, Shader& shader, int x, int y, int z)
+	void Renderer::Draw(Picture& picture, int x, int y, int z, Shader& shader)
 	{
 		GetRenderer()->mImplementation->Draw(picture, x, y, z, shader);
 	}
+	
 	void Renderer::Draw(Picture& picture, int x, int y, int z)
 	{
-		GetRenderer()->mImplementation->Draw(picture, x, y, z);
+		GetRenderer()->mImplementation->Draw(picture, x, y, z, GetRenderer()->mDefaultShader);
 	}
+
+	void Renderer::Clear()
+	{
+		GetRenderer()->mImplementation->Clear();
+	}
+
 	Renderer::Renderer()
 	{
 #ifdef ABELIAN_OPENGL

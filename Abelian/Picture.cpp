@@ -1,9 +1,10 @@
+#include "pch.h"
 #include "Picture.h"
 #include "OpenGLcode/OpenGLPicture.h"
 
 namespace Abelian
 {
-	Picture::Picture(const std::string& soureFile)
+	Picture::Picture(const std::string& sourceFile)
 	{
 #ifdef ABELIAN_OPENGL
 		mImplementation = new OpenGLPicture{ sourceFile };
@@ -12,7 +13,7 @@ namespace Abelian
 #endif
 	}
 
-	Picture::Picture(const std::string&& soureFile)
+	Picture::Picture(const std::string&& sourceFile)
 	{
 #ifdef ABELIAN_OPENGL
 		mImplementation = new OpenGLPicture{ sourceFile };

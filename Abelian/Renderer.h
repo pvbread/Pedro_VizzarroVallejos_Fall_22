@@ -11,8 +11,10 @@ namespace Abelian
 	public:
 		static Renderer* GetRenderer();
 		static void Init();
-		static void Draw(Picture& picture, Shader& shader, int x, int y, int z);
+		static void Draw(Picture& picture, int x, int y, int z, Shader& shader);
 		static void Draw(Picture& picture, int x, int y, int z);
+
+		static void Clear();
 
 	private:
 		inline static Renderer* mInstance{ nullptr };
@@ -21,7 +23,7 @@ namespace Abelian
 
 		Renderer();
 
-		inline static Shader mDefaultShader{ "Assets/Shaders/defaultAbelianVertex.glsl", 
-			"Assets/Shaders/defaultAbelianFragment.glsl" };
+		Shader mDefaultShader{ "../Assets/Shaders/defaultAbelianVertex.glsl", 
+			"../Assets/Shaders/defaultAbelianFragment.glsl" };
 	};
 }

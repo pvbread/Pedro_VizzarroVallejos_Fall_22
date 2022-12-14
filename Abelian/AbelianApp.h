@@ -1,5 +1,6 @@
 #pragma once
 
+#include "pch.h"
 #include "AbelianUtil.h"
 
 namespace Abelian
@@ -9,6 +10,8 @@ namespace Abelian
 	public:
 		virtual void OnUpdate();
 		void Run();
+	private:
+		//std::chrono::milliseconds mFrameDuration{};
 	};
 }
 

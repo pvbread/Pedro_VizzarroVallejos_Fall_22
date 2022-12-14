@@ -2,6 +2,8 @@
 #include "OpenGLRenderer.h"
 #include "glad/glad.h"
 #include "AbelianWindow.h"
+#include "Picture.h"
+#include "Shader.h"
 
 namespace Abelian
 {
@@ -51,4 +53,13 @@ namespace Abelian
 
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 	}
+
+   
+   
+    void OpenGLRenderer::Clear()
+    {
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT);
+        
+    }
 }

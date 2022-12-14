@@ -1,5 +1,6 @@
 #pragma once
-#include "RenderImplementation.h"
+
+#include "../RendererImplementation.h"
 
 namespace Abelian
 {
@@ -8,6 +9,7 @@ namespace Abelian
 	public:
 		OpenGLRenderer();
 		virtual void Draw(Picture& picture, int x, int y, int z, Shader& shader) override;
+		virtual void Clear() override;
 
 	};
 }

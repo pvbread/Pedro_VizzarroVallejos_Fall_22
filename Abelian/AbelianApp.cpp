@@ -23,12 +23,13 @@ namespace Abelian
 		AbelianWindow::Init();
 		AbelianWindow::GetWindow()->Create(600, 400, "TestWindow");
 
-		Picture pic{ "Assets/Textures/carl.png" };
+		Renderer::Init();
+
+		Picture pic{ "../Assets/Textures/carl.png" };
 
 		while (true)
 		{
-			glClearColor(0.0f, 0.5f, 0.0f, 1.0f);
-			glClear(GL_COLOR_BUFFER_BIT);
+			Renderer::Clear();
 			
 			Renderer::Draw(pic, 100, 100, 1);
 			
