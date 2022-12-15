@@ -21,21 +21,33 @@ namespace Abelian
 		ABELIAN_LOG("Abelian running..");
 
 		AbelianWindow::Init();
-		AbelianWindow::GetWindow()->Create(600, 400, "TestWindow");
+		AbelianWindow::GetWindow()->Create(800, 600, "TestWindow");
 
 		Renderer::Init();
 
+		mNextFrameTime = std::chrono::steady_clock::now() + mFrameDuration;
+
 		Picture pic{ "../Assets/Textures/carl.png" };
+
+		AbelianWindow::GetWindow()->SetKeyPressedCallback([&](const KeyPressedEvent& event) {
+			if (event.GetKeyCode() == ABELIAN_KEY_LEFT) x -= 10;
+			else if (event.GetKeyCode() == ABELIAN_KEY_RIGHT) x += 10;
+			});
 
 		while (true)
 		{
 			Renderer::Clear();
+
+			OnUpdate();
 			
 			Renderer::Draw(pic, 100, 100, 1);
+
+			std::this_thread::sleep_until(mNextFrameTime);
 			
 			AbelianWindow::GetWindow()->SwapBuffers();
+
+			mNextFrameTime = std::chrono::steady_clock::now() + mFrameDuration;
 			
-			OnUpdate();
 		}
 
 		

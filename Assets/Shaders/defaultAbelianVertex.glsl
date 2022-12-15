@@ -9,6 +9,8 @@ uniform vec2 screenSize;
 
 void main()
 {
-    gl_Position = vec4(aPos.x/600.0, aPos.y*2/400.0, 1.0, 1.0);
+
+ gl_Position = vec4(aPos.x*2.0/screenSize.x - 1, aPos.y*2.0/screenSize.y - 1, aPos.z, 1.0);
+    //gl_Position = vec4(aPos.x/600.0, aPos.y/400.0, 1.0, 1.0);
     TexCoord = TexData;
 }

@@ -15,10 +15,12 @@ namespace Abelian
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
         int nrChannels;
+        stbi_set_flip_vertically_on_load(true);
         unsigned char* data = stbi_load(pictureFile.c_str(), &mWidth, &mHeight, &nrChannels, 0);
+        
         if (data)
         {
-            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, mWidth, mHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, mWidth, mHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
             glGenerateMipmap(GL_TEXTURE_2D);
         }
         else
@@ -36,10 +38,12 @@ namespace Abelian
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
         int nrChannels;
+        stbi_set_flip_vertically_on_load(true);
         unsigned char* data = stbi_load(pictureFile.c_str(), &mWidth, &mHeight, &nrChannels, 0);
+       
         if (data)
         {
-            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, mWidth, mHeight, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+            glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, mWidth, mHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
             glGenerateMipmap(GL_TEXTURE_2D);
         }
         else
@@ -59,6 +63,11 @@ namespace Abelian
     void OpenGLPicture::Activate()
     {
         glBindTexture(GL_TEXTURE_2D, mImage);
+    }
+
+    OpenGLPicture::~OpenGLPicture()
+    {
+        glDeleteTextures(1, &mImage);
     }
     
 }

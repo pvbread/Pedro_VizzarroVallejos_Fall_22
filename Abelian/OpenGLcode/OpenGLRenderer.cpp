@@ -19,10 +19,10 @@ namespace Abelian
              (float)x, (float)y, (float)z, 0.0f, 0.0f, // bottem left
              (float)(x+picture.GetWidth()), (float)y, (float)z, 1.0f, 0.0f, // bottom right
              (float)x, (float)(y+picture.GetHeight()), (float)z, 0.0f, 1.0f, // top left
-             (float)(x + picture.GetWidth()), (float)(y + picture.GetHeight()), (float)x, 1.0f, 1.0f  // top right
+             (float)(x+picture.GetWidth()), (float)(y + picture.GetHeight()), (float)z, 1.0f, 1.0f  // top right
         };
         unsigned int indices[] = {
-            0, 1, 3, // first triangle
+            0, 1, 2, // first triangle
             1, 2, 3  // second triangle
         };
         unsigned int VBO, VAO, EBO;
@@ -37,21 +37,29 @@ namespace Abelian
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
         glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
+      
+        
         // position attribute
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
         glEnableVertexAttribArray(0);
         // color attribute
         glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
         glEnableVertexAttribArray(1);
-
+        
 		picture.Activate();
 		shader.Activate();
 
+        
         int width{ AbelianWindow::GetWindow()->GetWidth()};
         int height{ AbelianWindow::GetWindow()->GetWidth()};
         shader.ProvideFloatValues("screenSize", {(float)width, (float)height});
+        
 
 		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
+        glDeleteVertexArrays(1, &VAO);
+        glDeleteBuffers(1, &VBO);
+        glDeleteBuffers(1, &EBO);
 	}
 
    

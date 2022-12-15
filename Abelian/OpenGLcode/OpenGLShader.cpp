@@ -183,5 +183,10 @@ namespace Abelian
             break;
         }
     }
+
+    OpenGLShader::~OpenGLShader()
+    {
+        glDeleteProgram(mShaderProg);
+    }
     
 }

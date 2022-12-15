@@ -3,6 +3,8 @@
 #include "pch.h"
 #include "AbelianUtil.h"
 
+constexpr int FRAMES_PER_SECOND = 60;
+
 namespace Abelian
 {
 	class ABELIAN_API AbelianApp
@@ -11,7 +13,8 @@ namespace Abelian
 		virtual void OnUpdate();
 		void Run();
 	private:
-		//std::chrono::milliseconds mFrameDuration{};
+		std::chrono::milliseconds mFrameDuration{ std::chrono::seconds{1000} / FRAMES_PER_SECOND };
+		std::chrono::steady_clock::time_point mNextFrameTime;
 	};
 }
 
