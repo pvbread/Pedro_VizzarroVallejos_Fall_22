@@ -41,4 +41,12 @@ namespace Abelian
 	{
 		return mHeight;
 	}
+	void AbelianWindow::SetKeyPressedCallback(const std::function<void(const KeyPressedEvent&)>& keyPressedCallback)
+	{
+		mImplementation->SetKeyPressedCallback(keyPressedCallback);
+	}
+	void AbelianWindow::SetKeyReleasedCallback(const std::function<void(const KeyReleasedEvent&)>& keyReleasedCallback)
+	{
+		mImplementation->SetKeyReleasedCallback(keyReleasedCallback);
+	}
 }

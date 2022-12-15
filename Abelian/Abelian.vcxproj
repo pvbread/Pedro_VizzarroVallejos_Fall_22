@@ -139,7 +139,9 @@
     <ClInclude Include="AbelianApp.h" />
     <ClInclude Include="AbelianUtil.h" />
     <ClInclude Include="AbelianWindow.h" />
+    <ClInclude Include="Event.h" />
     <ClInclude Include="GLFWcode\GLFWimplementation.h" />
+    <ClInclude Include="Keys.h" />
     <ClInclude Include="OpenGLcode\OpenGLPicture.h" />
     <ClInclude Include="OpenGLcode\OpenGLRenderer.h" />
     <ClInclude Include="OpenGLcode\OpenGLShader.h" />
@@ -150,11 +152,13 @@
     <ClInclude Include="RendererImplementation.h" />
     <ClInclude Include="Shader.h" />
     <ClInclude Include="ShaderImplementation.h" />
+    <ClInclude Include="Unit.h" />
     <ClInclude Include="WindowImplementation.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AbelianApp.cpp" />
     <ClCompile Include="AbelianWindow.cpp" />
+    <ClCompile Include="Event.cpp" />
     <ClCompile Include="GLFWcode\GLFWimplementation.cpp" />
     <ClCompile Include="OpenGLcode\OpenGLPicture.cpp" />
     <ClCompile Include="OpenGLcode\OpenGLRenderer.cpp" />
@@ -163,6 +167,7 @@
     <ClCompile Include="Picture.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Shader.cpp" />
+    <ClCompile Include="Unit.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\glad\glad.vcxproj">

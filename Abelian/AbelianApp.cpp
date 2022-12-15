@@ -7,6 +7,7 @@
 #include "stb_image.h"
 #include "Picture.h"
 #include "Renderer.h"
+#include "Keys.h"
 
 
 namespace Abelian
@@ -29,7 +30,10 @@ namespace Abelian
 
 		Picture pic{ "../Assets/Textures/carl.png" };
 
+		int x{ 200 }, y{ 200 };
+
 		AbelianWindow::GetWindow()->SetKeyPressedCallback([&](const KeyPressedEvent& event) {
+			ABELIAN_LOG(event.GetKeyCode());
 			if (event.GetKeyCode() == ABELIAN_KEY_LEFT) x -= 10;
 			else if (event.GetKeyCode() == ABELIAN_KEY_RIGHT) x += 10;
 			});
@@ -40,7 +44,8 @@ namespace Abelian
 
 			OnUpdate();
 			
-			Renderer::Draw(pic, 100, 100, 1);
+			Renderer::Draw(pic, x, y, 1);
+			//ABELIAN_LOG(x);
 
 			std::this_thread::sleep_until(mNextFrameTime);
 			
