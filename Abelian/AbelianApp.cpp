@@ -8,6 +8,7 @@
 #include "Picture.h"
 #include "Renderer.h"
 #include "Keys.h"
+#include "Unit.h"
 
 
 namespace Abelian
@@ -28,7 +29,10 @@ namespace Abelian
 
 		mNextFrameTime = std::chrono::steady_clock::now() + mFrameDuration;
 
-		Picture pic{ "../Assets/Textures/carl.png" };
+		//Picture pic{ "../Assets/Textures/carl.png" };
+
+		Unit u{ "../Assets/Textures/carl.png", 0 };
+		u.SetCoord(100, 100, 1);
 
 		int x{ 200 }, y{ 200 };
 
@@ -44,8 +48,8 @@ namespace Abelian
 
 			OnUpdate();
 			
-			Renderer::Draw(pic, x, y, 1);
-			//ABELIAN_LOG(x);
+			Renderer::Draw(u);
+			u.SetCoord(x, y, 1);
 
 			std::this_thread::sleep_until(mNextFrameTime);
 			

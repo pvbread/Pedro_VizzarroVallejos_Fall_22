@@ -23,6 +23,16 @@ namespace Abelian
 		GetRenderer()->mImplementation->Draw(picture, x, y, z, GetRenderer()->mDefaultShader);
 	}
 
+	void Renderer::Draw(Unit& u, Shader& shader)
+	{
+		GetRenderer()->mImplementation->Draw(u.mPicture, u.mXcoord, u.mYcoord, u.mZcoord, shader);
+	}
+
+	void Renderer::Draw(Unit& u)
+	{
+		GetRenderer()->mImplementation->Draw(u.mPicture, u.mXcoord, u.mYcoord, u.mZcoord, GetRenderer()->mDefaultShader);
+	}
+
 	void Renderer::Clear()
 	{
 		GetRenderer()->mImplementation->Clear();

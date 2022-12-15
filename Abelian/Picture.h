@@ -9,6 +9,7 @@ namespace Abelian
 	class ABELIAN_API Picture
 	{
 	public:
+		Picture() = default;
 		Picture(const std::string& soureFile);
 		Picture(const std::string&& soureFile);
 

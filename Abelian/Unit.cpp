@@ -3,6 +3,19 @@
 
 namespace Abelian
 {
+	Unit::Unit(const std::string& picFile, int hp)
+	{
+		Picture pic{ picFile };
+		mPicture = pic;
+		mHP = hp;
+	}
+
+	Unit::Unit(std::string&& picFile, int hp)
+	{
+		Picture pic{ picFile };
+		mPicture = pic;
+		mHP = hp;
+	}
 	void Unit::SetCoord(int x, int y, int z)
 	{
 		mXcoord = x;

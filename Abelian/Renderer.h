@@ -3,6 +3,7 @@
 #include "Shader.h"
 #include "Picture.h"
 #include "RendererImplementation.h"
+#include "Unit.h"
 
 namespace Abelian
 {
@@ -13,6 +14,8 @@ namespace Abelian
 		static void Init();
 		static void Draw(Picture& picture, int x, int y, int z, Shader& shader);
 		static void Draw(Picture& picture, int x, int y, int z);
+		static void Draw(Unit& u, Shader& shader);
+		static void Draw(Unit& u);
 
 		static void Clear();
 
