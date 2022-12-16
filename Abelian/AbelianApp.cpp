@@ -16,7 +16,7 @@ namespace Abelian
 	AbelianApp::AbelianApp()
 	{
 		AbelianWindow::Init();
-		AbelianWindow::GetWindow()->Create(800, 600, "TestWindow");
+		AbelianWindow::GetWindow()->Create(1000, 800, "TestWindow");
 
 		Renderer::Init();
 	}

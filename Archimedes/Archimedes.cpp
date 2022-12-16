@@ -17,6 +17,7 @@ public:
 	void OnUpdate() override
 	{
 		Abelian::Renderer::GetRenderer()->Draw(pic, 0, 0, 0);
+		Abelian::Renderer::GetRenderer()->Draw(pic, 200, 300, 0);
 	}
 
 private:
