@@ -10,6 +10,7 @@ namespace Abelian
 	class ABELIAN_API AbelianApp
 	{
 	public:
+		AbelianApp();
 		virtual void OnUpdate();
 		void Run();
 	private:

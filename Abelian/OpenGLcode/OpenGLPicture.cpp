@@ -9,7 +9,9 @@ namespace Abelian
 	OpenGLPicture::OpenGLPicture(const std::string& pictureFile)
 	{
         glGenTextures(1, &mImage);
+        //ABELIAN_LOG(glGetError());
         glBindTexture(GL_TEXTURE_2D, mImage);
+        //ABELIAN_LOG(glGetError());
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);

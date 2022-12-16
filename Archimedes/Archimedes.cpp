@@ -10,10 +10,19 @@
 class ArchimedesGame : public Abelian::AbelianApp
 {
 public:
+	ArchimedesGame()
+	{
+	}
+	
 	void OnUpdate() override
 	{
-
+		//Abelian::Renderer::GetRenderer()->Draw(pic, 0, 0, 0);
 	}
+
+private:
+	//Abelian::Unit test{ "../Assets/Textures/carl.png", 0 };
+	Abelian::Picture pic{ "../Assets/Textures/carl.png" };
+
 };
 
 
