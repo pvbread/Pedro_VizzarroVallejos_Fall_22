@@ -6,23 +6,27 @@
 */
 
 #include "Abelian.h"
+#include "GameBoard.h"
 
 class ArchimedesGame : public Abelian::AbelianApp
 {
 public:
 	ArchimedesGame()
 	{
+		
 	}
 	
 	void OnUpdate() override
 	{
-		Abelian::Renderer::GetRenderer()->Draw(pic, 0, 0, 0);
-		Abelian::Renderer::GetRenderer()->Draw(pic, 200, 300, 0);
+		//Abelian::Renderer::GetRenderer()->Draw(emptyTile, 0, 0, 0);
+		//Abelian::Renderer::GetRenderer()->Draw(emptyTile, 200, 300, 0);
+		board.DrawBoard(Abelian::Renderer::GetRenderer());
 	}
 
 private:
 	//Abelian::Unit test{ "../Assets/Textures/carl.png", 0 };
-	Abelian::Picture pic{ "../Assets/Textures/carl.png" };
+	//Abelian::Picture emptyTile{ "../Assets/Textures/EmptyTile.png" };
+	Archimedes::GameBoard board;
 
 };
 
