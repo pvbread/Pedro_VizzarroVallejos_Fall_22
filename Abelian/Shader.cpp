@@ -9,7 +9,7 @@ namespace Abelian
 #ifdef ABELIAN_OPENGL
 		mImplementation = new OpenGLShader{ vertexFile, fragmentShader };
 #else
-		#OpenGL_is_the_only_option_right_now
+		
 #endif
 	}
 	Shader::Shader(const std::string&& vertexFile, const std::string&& fragmentShader)

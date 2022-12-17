@@ -16,10 +16,16 @@ else()
 endif()
 
 add_definitions(-DABELIAN_DEBUG)
+add_definitions(-DABELIAN_OPENGL)
 
 add_subdirectory(Archimedes)
 add_subdirectory(Abelian)
 add_subdirectory(glfw)
 add_subdirectory(glad)
+add_subdirectory(stbi)
 
 set(VS_STARTUP_PROJECT Archimedes)
+
+file(COPY Assets DESTINATION ${PROJECT_BINARY_DIR})
+file(COPY Assets DESTINATION ${PROJECT_BINARY_DIR}/Debug)
+file(COPY Assets DESTINATION ${PROJECT_BINARY_DIR}/Release)

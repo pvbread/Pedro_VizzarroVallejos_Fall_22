@@ -32,5 +32,8 @@
     <ClInclude Include="WinState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="TileType.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

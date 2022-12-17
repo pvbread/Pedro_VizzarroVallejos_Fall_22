@@ -4,7 +4,7 @@ namespace Archimedes
 {
 	GameBoard::GameBoard()
 	{
-		board = std::vector(6, std::vector<int>(7, 0));
+		board = std::vector(6, std::vector<int>(7, EMPTY_TILE));
 		numOfPieces = std::vector<int>(7, 0);
 	}
 
@@ -20,12 +20,25 @@ namespace Archimedes
 				else
 				{
 					//query which tiletype it is
-					if (board[row][col] == 0)
+					switch (board[row][col])
+					{
+					case EMPTY_TILE:
 						Abelian::Renderer::GetRenderer()->Draw(emptyTile, x, y, 0);
-					else if (board[row][col] == 1)
+						break;
+					case P1_TILE:
 						Abelian::Renderer::GetRenderer()->Draw(p1Tile, x, y, 0);
-					else if (board[row][col] == 2)
+						break;
+					case P2_TILE:
 						Abelian::Renderer::GetRenderer()->Draw(p2Tile, x, y, 0);
+						break;
+					case P1_WIN_TILE:
+						Abelian::Renderer::GetRenderer()->Draw(p1WinTile, x, y, 0);
+						break;
+					case P2_WIN_TILE:
+						Abelian::Renderer::GetRenderer()->Draw(p2WinTile, x, y, 0);
+						break;
+					}
+					
 				}
 				x += 100;
 			}
@@ -98,10 +111,18 @@ namespace Archimedes
 			//if p1 went last
 			if (turn)
 			{
+				board[r][c] = P1_WIN_TILE;
+				board[r-1][c] = P1_WIN_TILE;
+				board[r-2][c] = P1_WIN_TILE;
+				board[r-2][c] = P1_WIN_TILE;
 				return WinState::P1_WIN;
 			}
 			else
 			{
+				board[r][c] = P2_WIN_TILE;
+				board[r - 1][c] = P2_WIN_TILE;
+				board[r - 2][c] = P2_WIN_TILE;
+				board[r - 2][c] = P2_WIN_TILE;
 				return WinState::P2_WIN;
 			}
 		}
@@ -128,10 +149,18 @@ namespace Archimedes
 				//if p1 went last
 				if (turn)
 				{
+					board[r][left] = P1_WIN_TILE;
+					board[r][left + 1] = P1_WIN_TILE;
+					board[r][left + 2] = P1_WIN_TILE;
+					board[r][left + 3] = P1_WIN_TILE;
 					return WinState::P1_WIN;
 				}
 				else
 				{
+					board[r][left] = P2_WIN_TILE;
+					board[r][left + 1] = P2_WIN_TILE;
+					board[r][left + 2] = P2_WIN_TILE;
+					board[r][left + 3] = P2_WIN_TILE;
 					return WinState::P2_WIN;
 				}
 			}
@@ -194,10 +223,18 @@ namespace Archimedes
 				//if p1 went last
 				if (turn)
 				{
+					board[topLeftRow][topLeftCol] = P1_WIN_TILE;
+					board[topLeftRow-1][topLeftCol+1] = P1_WIN_TILE;
+					board[topLeftRow-2][topLeftCol+2] = P1_WIN_TILE;
+					board[topLeftRow-3][topLeftCol+3] = P1_WIN_TILE;
 					return WinState::P1_WIN;
 				}
 				else
 				{
+					board[topLeftRow][topLeftCol] = P2_WIN_TILE;
+					board[topLeftRow - 1][topLeftCol + 1] = P2_WIN_TILE;
+					board[topLeftRow - 2][topLeftCol + 2] = P2_WIN_TILE;
+					board[topLeftRow - 3][topLeftCol + 3] = P2_WIN_TILE;
 					return WinState::P2_WIN;
 				}
 			}
@@ -250,10 +287,18 @@ namespace Archimedes
 				//if p1 went last
 				if (turn)
 				{
+					board[bottomLeftRow][bottomLeftCol] = P1_WIN_TILE;
+					board[bottomLeftRow + 1][bottomLeftCol + 1] = P1_WIN_TILE;
+					board[bottomLeftRow + 2][bottomLeftCol + 2] = P1_WIN_TILE;
+					board[bottomLeftRow + 3][bottomLeftCol + 3] = P1_WIN_TILE;
 					return WinState::P1_WIN;
 				}
 				else
 				{
+					board[bottomLeftRow][bottomLeftCol] = P2_WIN_TILE;
+					board[bottomLeftRow + 1][bottomLeftCol + 1] = P2_WIN_TILE;
+					board[bottomLeftRow + 2][bottomLeftCol + 2] = P2_WIN_TILE;
+					board[bottomLeftRow + 3][bottomLeftCol + 3] = P2_WIN_TILE;
 					return WinState::P2_WIN;
 				}
 			}

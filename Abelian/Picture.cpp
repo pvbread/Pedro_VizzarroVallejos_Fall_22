@@ -9,7 +9,7 @@ namespace Abelian
 #ifdef ABELIAN_OPENGL
 		mImplementation = new OpenGLPicture{ sourceFile };
 #else
-		#OpenGL_is_the_only_option_right_now
+		
 #endif
 	}
 

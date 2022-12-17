@@ -2,6 +2,7 @@
 #include "Abelian.h"
 #include "SelectState.h"
 #include "WinState.h"
+#include "TileType.h"
 
 namespace Archimedes
 {
@@ -27,5 +28,7 @@ namespace Archimedes
 		Abelian::Picture p1Tile{ "../Assets/Textures/BlueTile.png" };
 		Abelian::Picture p2Tile{ "../Assets/Textures/RedTile.png" };
 		Abelian::Picture selectedTile{ "../Assets/Textures/SelectedTile.png" };
+		Abelian::Picture p2WinTile{ "../Assets/Textures/WinRedTile.png" };
+		Abelian::Picture p1WinTile{ "../Assets/Textures/WinBlueTile.png" };
 	};
 }
