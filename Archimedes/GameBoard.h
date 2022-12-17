@@ -1,6 +1,7 @@
 #pragma once
 #include "Abelian.h"
 #include "SelectState.h"
+#include "WinState.h"
 
 namespace Archimedes
 {
@@ -8,12 +9,11 @@ namespace Archimedes
 	{
 	public:
 		GameBoard();
-		void DrawBoard(Abelian::Renderer* renderer);
+		void DrawBoard();
 		void MoveSelection(SelectState direction);
 		void PlacePiece();
 
-		//returns 0 for no, 1 for p1 win, 2 for p2 win, 3 for draw
-		int CheckFinish();
+		WinState CheckFinish();
 
 	private:
 		bool p1Turn = true;

@@ -29,5 +29,8 @@
     <ClInclude Include="SelectState.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="WinState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
