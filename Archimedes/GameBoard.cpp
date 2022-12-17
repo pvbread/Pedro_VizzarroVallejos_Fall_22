@@ -58,6 +58,8 @@ namespace Archimedes
 		{
 			board[numOfPieces[currSelectedCol]][currSelectedCol] = 2;
 		}
+		//keep memory of last coordinates (but last player is opposite whose turn it is now)
+		lastPieceCoords = std::make_pair(numOfPieces[currSelectedCol], currSelectedCol);
 		numOfPieces[currSelectedCol]++;
 		p1Turn = !p1Turn;
 		currSelectedCol = 0;
@@ -75,6 +77,16 @@ namespace Archimedes
 
 	int GameBoard::CheckFinish()
 	{
+		//brute force
+		//idea make a horizontal, vertical, 
+		//and diagonal(leftbottom to topright) 
+		//diag(lefttop to rightbottom) size 4 window
+		//check for equal 1s or 2s
+
+		//less brute force, keep memory of last piece placed
+		// the type is the opposite of whoever's turn it is now
+		//check all possible involved tiles
+
 		return 0;
 	}
 }

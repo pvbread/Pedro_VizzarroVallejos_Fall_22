@@ -18,6 +18,7 @@ namespace Archimedes
 	private:
 		bool p1Turn = true;
 		int currSelectedCol = 0;
+		std::pair<int, int> lastPieceCoords;
 		int ROWS = 6;
 		int COLS = 7;
 		std::vector<std::vector<int>> board;
