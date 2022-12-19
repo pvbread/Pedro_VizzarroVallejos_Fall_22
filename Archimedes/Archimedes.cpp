@@ -29,11 +29,27 @@ namespace Archimedes
 			//Abelian::Renderer::GetRenderer()->Draw(emptyTile, 0, 0, 0);
 			if (mPlayState == WinState::PLAYING)
 			{
+				board.DisplayTurn();
 				// if it's not p1 (human player)
 				if (!board.GetTurn())
 				{
-					int nextOpponentMove = opponent.PickNextMove(board);
-					board.AdversaryPlacePiece(nextOpponentMove);
+					//ABELIAN_LOG(float(std::chrono::steady_clock::now()));
+					
+					if (!oppTimerSet)
+					{
+						oppTimerSet;
+						opponentNextPlayTime = std::chrono::steady_clock::now() + OpponentWaitDuration;
+					}
+					else
+					{
+						if (std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::steady_clock::now() - opponentNextPlayTime).count() > 0)
+						{
+							int nextOpponentMove = opponent.PickNextMove(board);
+							board.AdversaryPlacePiece(nextOpponentMove);
+							oppTimerSet = false;
+						}
+					}
+					
 				}
 				else if (mSelectState == SelectState::MOVE_LEFT || mSelectState == SelectState::MOVE_RIGHT)
 				{
@@ -71,6 +87,9 @@ namespace Archimedes
 	private:
 		GameBoard board;
 		Adversary opponent;
+		bool oppTimerSet{ false };
+		std::chrono::steady_clock::time_point opponentNextPlayTime;
+		std::chrono::milliseconds OpponentWaitDuration{ 3000 };
 
 		SelectState mSelectState{ SelectState::STILL };
 		WinState mPlayState{ WinState::PLAYING };

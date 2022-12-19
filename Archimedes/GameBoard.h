@@ -15,6 +15,7 @@ namespace Archimedes
 		void PlayerPlacePiece();
 		void AdversaryPlacePiece(int column);
 		void ChangeTurn();
+		void DisplayTurn();
 
 		std::vector<int> GetValidMoves() const;
 		bool GetTurn() const;
@@ -34,6 +35,10 @@ namespace Archimedes
 		Abelian::Picture selectedTile{ "../Assets/Textures/SelectedTile.png" };
 		Abelian::Picture p2WinTile{ "../Assets/Textures/WinRedTile.png" };
 		Abelian::Picture p1WinTile{ "../Assets/Textures/WinBlueTile.png" };
+		Abelian::Picture turnTexture{ "../Assets/Textures/Turn.png" };
+		Abelian::Picture p1Indicator{ "../Assets/Textures/BlueTileIndicator.png" };
+		Abelian::Picture p2Indicator{ "../Assets/Textures/RedTileIndicator.png" };
+
 
 		friend class Adversary;
 	};

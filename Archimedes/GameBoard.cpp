@@ -8,6 +8,15 @@ namespace Archimedes
 		numOfPieces = std::vector<int>(7, 0);
 	}
 
+	void GameBoard::DisplayTurn()
+	{
+		Abelian::Renderer::GetRenderer()->Draw(turnTexture, 800, 400, 0);
+		if (p1Turn)
+			Abelian::Renderer::GetRenderer()->Draw(p1Indicator, 850, 300, 0);
+		if (!p1Turn)
+			Abelian::Renderer::GetRenderer()->Draw(p2Indicator, 850, 300, 0);
+	}
+
 	void GameBoard::DrawBoard()
 	{
 		int x{ 0 }, y{ 0 };
