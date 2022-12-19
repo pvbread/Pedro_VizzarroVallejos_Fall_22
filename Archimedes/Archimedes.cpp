@@ -7,6 +7,7 @@
 
 #include "Abelian.h"
 #include "GameBoard.h"
+#include "Adversary.h"
 #include "SelectState.h"
 #include "WinState.h"
 
@@ -28,7 +29,13 @@ namespace Archimedes
 			//Abelian::Renderer::GetRenderer()->Draw(emptyTile, 0, 0, 0);
 			if (mPlayState == WinState::PLAYING)
 			{
-				if (mSelectState == SelectState::MOVE_LEFT || mSelectState == SelectState::MOVE_RIGHT)
+				// if it's not p1 (human player)
+				if (!board.GetTurn())
+				{
+					int nextOpponentMove = opponent.PickNextMove(board);
+					board.AdversaryPlacePiece(nextOpponentMove);
+				}
+				else if (mSelectState == SelectState::MOVE_LEFT || mSelectState == SelectState::MOVE_RIGHT)
 				{
 					board.MoveSelection(mSelectState);
 					mSelectState = SelectState::STILL;
@@ -39,6 +46,7 @@ namespace Archimedes
 					mSelectState = SelectState::STILL;
 					mPlayState = board.CheckFinish();
 				}
+				//board.ChangeTurn();
 			}
 			// instead of else, because I want to render it right away
 			if (mPlayState != WinState::PLAYING)
@@ -62,6 +70,7 @@ namespace Archimedes
 
 	private:
 		GameBoard board;
+		Adversary opponent;
 
 		SelectState mSelectState{ SelectState::STILL };
 		WinState mPlayState{ WinState::PLAYING };

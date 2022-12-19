@@ -13,8 +13,11 @@ namespace Archimedes
 		void DrawBoard();
 		void MoveSelection(SelectState direction);
 		void PlayerPlacePiece();
+		void AdversaryPlacePiece(int column);
+		void ChangeTurn();
 
 		std::vector<int> GetValidMoves() const;
+		bool GetTurn() const;
 		WinState CheckFinish();
 
 	private:

@@ -69,11 +69,34 @@ namespace Archimedes
 		}
 		else
 		{
+			//i have to make this for when it's 2 human players
 			board[numOfPieces[currSelectedCol]][currSelectedCol] = 2;
 		}
 		//keep memory of last coordinates (but last player is opposite whose turn it is now)
 		lastPieceCoords = std::make_pair(numOfPieces[currSelectedCol], currSelectedCol);
 		numOfPieces[currSelectedCol]++;
+		p1Turn = !p1Turn;
+		currSelectedCol = 0;
+		while (numOfPieces[currSelectedCol] == 6)
+		{
+			currSelectedCol++;
+			//all columns 0-6 are full, check for win conditions after
+			if (currSelectedCol == 7)
+			{
+				currSelectedCol = -1;
+				break;
+			}
+		}
+	}
+
+	void GameBoard::AdversaryPlacePiece(int column)
+	{
+		if (numOfPieces[column] == 6)
+			return;
+		board[numOfPieces[column]][column] = 2;
+		//keep memory of last coordinates (but last player is opposite whose turn it is now)
+		lastPieceCoords = std::make_pair(numOfPieces[column], column);
+		numOfPieces[column]++;
 		p1Turn = !p1Turn;
 		currSelectedCol = 0;
 		while (numOfPieces[currSelectedCol] == 6)
@@ -323,5 +346,15 @@ namespace Archimedes
 		}
 
 		return validMoves;
+	}
+
+	void GameBoard::ChangeTurn()
+	{
+		p1Turn = !p1Turn;
+	}
+
+	bool GameBoard::GetTurn() const
+	{
+		return p1Turn;
 	}
 }
