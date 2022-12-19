@@ -1,2 +1,4 @@
 This is a standard connect-4 game.
-When a player wins, the winning tiles get highlighted.
+When a player wins, the winning tiles get highlighted and the winning player gets acknowledged.
+If no player wins, a tie/draw message appears.
+There is a minimal "AI" for the cpu played (red) which chooses a random move every 3 seconds.

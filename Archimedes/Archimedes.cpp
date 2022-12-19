@@ -26,18 +26,15 @@ namespace Archimedes
 
 		void OnUpdate() override
 		{
-			//Abelian::Renderer::GetRenderer()->Draw(emptyTile, 0, 0, 0);
 			if (mPlayState == WinState::PLAYING)
 			{
 				board.DisplayTurn();
-				// if it's not p1 (human player)
+
 				if (!board.GetTurn())
 				{
-					//ABELIAN_LOG(float(std::chrono::steady_clock::now()));
-					
 					if (!oppTimerSet)
 					{
-						oppTimerSet;
+						oppTimerSet = true;
 						opponentNextPlayTime = std::chrono::steady_clock::now() + OpponentWaitDuration;
 					}
 					else
