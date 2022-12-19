@@ -12,8 +12,9 @@ namespace Archimedes
 		GameBoard();
 		void DrawBoard();
 		void MoveSelection(SelectState direction);
-		void PlacePiece();
+		void PlayerPlacePiece();
 
+		std::vector<int> GetValidMoves() const;
 		WinState CheckFinish();
 
 	private:
@@ -30,5 +31,9 @@ namespace Archimedes
 		Abelian::Picture selectedTile{ "../Assets/Textures/SelectedTile.png" };
 		Abelian::Picture p2WinTile{ "../Assets/Textures/WinRedTile.png" };
 		Abelian::Picture p1WinTile{ "../Assets/Textures/WinBlueTile.png" };
+
+		friend class Adversary;
 	};
+
+	
 }

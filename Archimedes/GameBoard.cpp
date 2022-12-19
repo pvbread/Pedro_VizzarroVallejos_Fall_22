@@ -61,7 +61,7 @@ namespace Archimedes
 		}
 	}
 
-	void GameBoard::PlacePiece()
+	void GameBoard::PlayerPlacePiece()
 	{
 		if (p1Turn)
 		{
@@ -311,5 +311,17 @@ namespace Archimedes
 			return WinState::DRAW;
 
 		return WinState::PLAYING;
+	}
+	std::vector<int> GameBoard::GetValidMoves() const
+	{
+		std::vector<int> validMoves;
+		for (int i = 0; i < numOfPieces.size(); i++)
+		{
+			//adds the index of columns that aren't full
+			if (numOfPieces[i] < 6)
+				validMoves.push_back(i);
+		}
+
+		return validMoves;
 	}
 }

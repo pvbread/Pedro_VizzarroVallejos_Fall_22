@@ -136,10 +136,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Adversary.cpp" />
     <ClCompile Include="Archimedes.cpp" />
     <ClCompile Include="GameBoard.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Adversary.h" />
     <ClInclude Include="GameBoard.h" />
     <ClInclude Include="SelectState.h" />
     <ClInclude Include="TileType.h" />
