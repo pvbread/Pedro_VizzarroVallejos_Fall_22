@@ -44,6 +44,7 @@ namespace Archimedes
 							int nextOpponentMove = opponent.PickNextMove(board);
 							board.AdversaryPlacePiece(nextOpponentMove);
 							oppTimerSet = false;
+							mPlayState = board.CheckFinish();
 						}
 					}
 					
